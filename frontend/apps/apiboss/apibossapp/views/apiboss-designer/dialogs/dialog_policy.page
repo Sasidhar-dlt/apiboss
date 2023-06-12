@@ -1,0 +1,119 @@
+SCHEMA
+======
+{
+    "apikey": {"html":"input", "type":"text", "placeholder":"{{i18n.APIKey}}",  "spellcheck":"false",  "required":"true","spellcheck":"false" , "oninvalid":"this.setCustomValidity('{{i18n.validData}}')" , "oninput":"setCustomValidity('')","class":"validate"},
+    "basicauthentication": {"html":"text-div","text":"Basic Authentication?"},
+    "isauthenticationneeded": {"html":"drop-down","style":"width:100%; height:100%;","list":"[{'value':'YES'},{'value':'NO'}]","text":"NO","styleBody":"select#choices{padding:12px}" ,"value":"NO"},
+    "userid": {"html":"input", "type":"text", "placeholder":"{{i18n.USERID}}",  "spellcheck":"false", "pattern":"{{i18n.namePattern}}", "oninvalid":"this.setCustomValidity('{{i18n.validData}}')" , "oninput":"setCustomValidity('')","required":"true","class":"validate"},
+    "password": {"html":"input", "type":"text","placeholder":"{{i18n.Password}}",  "spellcheck":"false", "pattern":"{{i18n.apiDescPattern}}", "oninvalid":"this.setCustomValidity('{{i18n.validData}}')" , "oninput":"setCustomValidity('')","required":"true","class":"validate"},
+    "needsjwt": {"html":"text-div","text":"Needs JWT Token?"},
+    "isjwttokenneeded": {"html":"drop-down","style":"width:100%; height:100%;","list":"[{'value':'YES'},{'value':'NO'}]","text":"NO","styleBody":"select#choices{padding:12px}","value":"NO"},
+    "jwtsubject": {"html":"input", "type":"text", "placeholder":"{{i18n.JWTSubject}}",  "spellcheck":"false", "pattern":"{{i18n.apiDescPattern}}", "oninvalid":"this.setCustomValidity('{{i18n.validData}}')" , "oninput":"setCustomValidity('')","required":"true","class":"validate"},
+    "needstoken": {"html":"text-div","text":"Add Token?"},
+    "istokenneeded": {"html":"drop-down","style":"width:100%; height:100%;","list":"[{'value':'YES'},{'value':'NO'}]","text":"NO","styleBody":"select#choices{padding:12px}","value":"NO"},
+    "tokensubject": {"html":"input", "type":"text", "placeholder":"{{i18n.TokenSubject}}",  "spellcheck":"false", "pattern":"{{i18n.apiDescPattern}}", "oninvalid":"this.setCustomValidity('{{i18n.validData}}')" , "oninput":"setCustomValidity('')","required":"true","class":"validate"},
+    "rateenforcement": {"html":"text-div","text":"Rate Enforcement?"},
+    "israteenforcementneeded": {"html":"drop-down","style":"width:100%; height:100%;","list":"[{'value':'YES'},{'value':'NO'}]","text":"NO","styleBody":"select#choices{padding:12px}" ,"value":"NO"},
+    "persec": {"html":"input", "type":"number", "placeholder":"{{i18n.PerSec}}",  "spellcheck":"false", "oninvalid":"this.setCustomValidity('{{i18n.FillField}}')" , "oninput":"setCustomValidity('')","required":"true","class":"validate"},
+    "permin": {"html":"input", "type":"number", "placeholder":"{{i18n.PerMin}}",  "spellcheck":"false", "oninvalid":"this.setCustomValidity('{{i18n.FillField}}')" , "oninput":"setCustomValidity('')","required":"true","class":"validate"},
+    "perhour": {"html":"input", "type":"number", "placeholder":"{{i18n.PerHour}}",  "spellcheck":"false", "oninvalid":"this.setCustomValidity('{{i18n.FillField}}')" , "oninput":"setCustomValidity('')","required":"true","class":"validate"},
+    "perday": {"html":"input", "type":"number", "placeholder":"{{i18n.PerDay}}",  "spellcheck":"false", "oninvalid":"this.setCustomValidity('{{i18n.FillField}}')" , "oninput":"setCustomValidity('')","required":"true","class":"validate"},
+    "permonth": {"html":"input", "type":"number", "placeholder":"{{i18n.PerMonth}}",  "spellcheck":"false", "oninvalid":"this.setCustomValidity('{{i18n.FillField}}')" , "oninput":"setCustomValidity('')","required":"true","class":"validate"},
+    "peryear": {"html":"input", "type":"number", "placeholder":"{{i18n.PerYear}}",  "spellcheck":"false", "oninvalid":"this.setCustomValidity('{{i18n.FillField}}')" , "oninput":"setCustomValidity('')","required":"true","class":"validate"}
+
+}
+======
+
+
+LAYOUT
+=================
+
+---------------------------------------------------------------------------------------------------------------------
+|                  apikey                                                                                           |
+---------------------------------------------------------------------------------------------------------------------
+|   basicauthentication   | isauthenticationneeded    | userid     | password                                       |
+---------------------------------------------------------------------------------------------------------------------
+|   needsjwt              | isjwttokenneeded          | jwtsubject                                                  |
+---------------------------------------------------------------------------------------------------------------------
+|   needstoken            | istokenneeded             | tokensubject                                                |
+---------------------------------------------------------------------------------------------------------------------
+|   rateenforcement       | israteenforcementneeded   | persec     | permin | perhour | perday | permonth | peryear |
+---------------------------------------------------------------------------------------------------------------------
+
+=================
+Row Heights = 4em,4em,4em,4em,4em
+Col Widths = 19%,15%,11%,11%,11%,11%,11%,11%
+=================
+
+
+CSS CLASSES
+===========
+CONTAINER CLASSES = grid-container-extension
+ITEM CLASSES = grid-item-extension
+PER ITEM CLASS = class
+===========
+
+CSS
+=======
+.grid-container-extension {
+    height: 100%;
+    row-gap: 2.2em;
+}
+
+.grid-item-extension {
+    background-color: var(--dialog-background, white);
+    padding: 10px;
+    display: flex;
+    flex-flow: row;
+    box-sizing: border-box;
+}
+
+.grid-item-extension > input, .grid-item-extension > input:focus {
+    width: 100%;
+    border-radius: 10px;
+    border: 0.5px solid #98CCFD;
+    outline: none;
+    padding: 12px;
+    resize: none;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input:disabled {
+    cursor: default;
+    background-color: rgba(239, 239, 239, 0.3);
+    color: rgb(84, 84, 84);
+}
+
+.class-isauthenticationneeded, .class-isjwttokenneeded, .class-israteenforcementneeded, .class-istokenneeded {
+    padding: 3px 25px 0px 11px;
+}
+
+.item0{
+    grid-column: 1/9;
+}
+.item3{
+    grid-column: 3/6;
+}
+.item4{
+    grid-column: 6/9;
+}
+
+::placeholder {opacity: 0.8;}
+
+body {
+    margin: 0%;
+    display: inline-block;
+    width: 100%;
+}
+
+=======

@@ -1,0 +1,33 @@
+{
+    "__comment": "/** All paths in this file are required to be relative to the view's folder **/",
+
+    "components": {
+        "dialog-box": "../shared/components/dialog-box", 
+        "flow-diagram": "../shared/components/flow-diagram", 
+        "pluggable-ribbon": "components/pluggable-ribbon",
+        "pluggable-ribbon-home": "components/pluggable-ribbon-home",
+        "pluggable-ribbon-developer": "components/pluggable-ribbon-developer",
+        "html-fragment": "../shared/components/html-fragment",
+        "image-button": "../shared/components/image-button",
+        "context-menu": "components/context-menu",
+        "item-list": "components/item-list",
+        "api-list": "components/api-list",
+        "drop-down": "components/drop-down",
+        "input-table": "components/input-table",
+        "text-div": "components/text-div",
+        "api-contents": "components/api-contents",
+        "apiinput-apioutput": "components/apiinput-apioutput",
+        "text-editor": "components/text-editor",
+        "code-editor": "components/code-editor",
+
+        "api-details": "components/api-details",
+        "input-output-fields": "components/input-output-fields",
+        "floating-window": "components/floating-window",
+        "code-snippet-window": "components/code-snippet-window"
+        },
+    "initModules": { 
+        "apibossmodel": "model/apibossmodel.mjs", 
+        "nodeRepository": "components/pluggable-ribbon-home/lib/nodeRepository.mjs",
+        "openserverhelper": "js/openserverhelper.mjs"
+    }
+}

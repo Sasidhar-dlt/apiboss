@@ -1,0 +1,109 @@
+<!--
+/** 
+ * Floating Window hosting component.
+ * (C) 2020 TekMonks. All rights reserved.
+ * License: See enclosed LICENSE file.
+ */
+ -->
+ <style>
+    body, html {
+        margin: 0; 
+        padding: 2px 0px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    div#container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+div#container {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+    
+    div#container {
+        display: flex;
+        flex-direction: column;
+        /* flex-wrap: wrap; */
+        /* align-items: flex-start; */
+        align-items: center;
+        overflow-y: auto;
+        background-color: #DFF0FE;
+        /* border-radius: 10px; */
+        border: 1px solid #C6E3FF;
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        cursor: pointer;
+    
+    }
+    
+    div#container > div {
+        display: flex;
+        /* flex-direction: column; */
+        margin: 5px;
+        /* width: 7.5em; */
+        width: 100%;
+        min-width: 2.5em;
+        box-sizing: border-box;
+        /* margin: 20px 0px; */
+        justify-content: space-between;
+        padding: 15px 0px 15px 11px;
+
+    }
+    div#container > div > span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 1em;
+    }
+    div#container > div > img {
+        width: 50%;
+    }
+    
+    span#text {
+     width: 70%;
+    word-break: break-word;
+    }
+    span#POST {
+        font-family: 'Red Hat Text';
+        font-style: normal;
+        font-weight: 700;
+        text-align: center;
+        color: #FFFFFF;
+        background: #535AFF;
+        border-radius: 5px;
+        padding: 5px;
+        height: 1.1em;
+        margin-right: 5px;
+    }
+    span#GET {
+        font-family: 'Red Hat Text';
+        font-style: normal;
+        font-weight: 700;
+        text-align: center;
+        color: #FFFFFF;
+        background: #039000;
+        border-radius: 5px;
+        padding: 5px 10px;;
+        height: 1.1em;
+        margin-right: 5px;
+    }
+    
+    .beingDragged {opacity: 0.5;}
+    </style>
+    
+    {{{styleBody}}}
+    
+    <div id="container">
+        {{#items}}
+        <div id="{{id}}" {{#onclick}}onclick="{{onclick}}"{{/onclick}} class = "items">
+            <span id="text">{{label}}</span>
+            <span id="{{exposedmethod}}">{{exposedmethod}}</span>
+
+        </div>
+        {{/items}}
+    </div>

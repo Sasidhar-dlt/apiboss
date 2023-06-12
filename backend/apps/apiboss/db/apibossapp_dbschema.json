@@ -1,0 +1,20 @@
+[
+    "BEGIN TRANSACTION",
+	
+	
+    "CREATE TABLE quotas(id varchar not null, quota integer not null)",
+
+    "INSERT INTO quotas (id, quota) VALUES ('_default_', '0.3')",
+
+    "CREATE TABLE views(domain varchar not null, view varchar not null)",
+
+    "INSERT INTO views (domain, view) VALUES ('deeplogictech.com', 'apiboss-designer')",
+
+    "CREATE TABLE usage(timestamp TIMESTAMP DEFAULT (strftime('%s', 'now')), id varchar not null, usage integer not null, model varchar not null)",
+
+    "CREATE TABLE requests(id varchar not null primary key, timestamp number not null, type varchar not null, url varchar not null, headers varchar not null, request varchar not null)",
+
+    "CREATE TABLE responses(id varchar not null primary key, timestamp number not null, type varchar not null, error varchar not null, status number not null, responseheaders varchar not null, response varchar not null, FOREIGN KEY(id) REFERENCES requests(id))",
+
+    "COMMIT TRANSACTION"
+]

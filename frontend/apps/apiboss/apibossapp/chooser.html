@@ -1,0 +1,166 @@
+<!doctype html>
+
+<html>
+<head>
+	<script type="module">
+		import {chooser} from "../apibossapp/js/chooser.mjs"; window.monkshu_env.__chooser = chooser;
+	</script>
+
+	<style>
+    @import url('./fonts/appfonts.css');
+
+		body {
+			background-color: #DFF0FE;
+			display: flex;
+			flex-direction: column;
+			font-family: 'Red Hat Text';
+			justify-content: center;
+			align-items: center;
+		}
+
+		div#left {
+			height: calc(100vh - 90vh);
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			box-sizing: border-box;
+			background-color: #98CCFD;
+			color: white;
+			justify-content: space-between;
+			border-radius: 5px;
+			overflow: hidden;
+		}
+		div#left > img {
+			width: 6em;
+		}
+		div#left > span {text-align: center; overflow: hidden; text-overflow: ellipsis;}
+		span#copyright {font-size: x-small; text-align: center;}
+
+		div#right {
+			height: calc(100vh - 20vh);
+			box-sizing: border-box;
+			background-color: transparent;
+			overflow-y: scroll;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+		div#right > div.idebutton {
+			width: 15%;
+			margin: 2% 5%;
+			height: 40%;
+			cursor: pointer;
+			user-select: none;
+			background-color: white;
+			border-radius: 20px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 4%;
+			box-sizing: border-box;
+			justify-content: space-between;
+			border: 1px solid #98CCFD;
+		}
+		div#right > div.idebutton:hover {
+			border-color: #4788C7;
+			color: #4788C7;
+		}
+		div#right > div.idebutton > div#img {
+			width: 80%; 
+			min-height: 60%;
+			height: 60%;
+			align-items: center;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+		}
+		div#right > div.idebutton > div#img > img {width: 90%; margin-bottom:20%}
+		div#right > div.idebutton > span {
+			display: block;
+    		text-align: center;
+			white-space: pre-line;
+			width: 100%;
+			margin-top: 15%
+		}
+
+		div#topright {
+			position: absolute;
+			top: 1%;
+			right: 1%;
+			width: 10em;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+			gap:2em;
+		}
+		
+		div#details {
+			position: absolute;
+			top: 1%;
+			right: 100%;
+			border: 0.5px solid #4788C7;
+			width: max-content;
+			border-radius: 5px;
+			margin: 5px;
+			padding: 3px 4px 0px 4px;
+		}
+		span#username {
+			margin: 5px;
+		}
+		span-with-menu#gear{
+
+			margin-right: 0em;
+
+		}
+		.spinner {position: absolute;z-index: 9999;}
+
+     .loading-spinner {height: 9em;width: 9em;}
+*::-webkit-scrollbar {
+    width: 0.3em !important;
+	height: 0.5em !important;
+    scroll-behavior: smooth !important;
+}
+
+*::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+    margin: 40px;
+    border-radius: 10px !important;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: darkgrey !important;
+    border-radius: 10px !important;
+    background-clip: padding-box;
+}
+	</style>
+   <script type="text/javascript">history.pushState(null, document.title, location.href);
+	window.addEventListener('popstate', function (event)
+	{
+	  history.pushState(null, document.title, location.href);
+	});</script>
+	<title>{{i18n.Title}}</title>
+	<link href="./apibossapp/img/favicon.ico" rel="icon" type="image/x-icon">
+	<script type="module">
+		import {main} from "./js/main.mjs";
+		import "./components/span-with-menu/span-with-menu.mjs";
+		import {monkshu_component} from "/framework/js/monkshu_component.mjs";
+		</script>
+</head>
+
+<body>
+	<div id="left">
+		<span id="text"><p>{{i18n.IDEH1}} &nbsp; {{i18n.IDEH2}}</p></span>
+	</div>
+	<div id="right">
+		{{#views}}
+		<div class="idebutton" ondblclick="monkshu_env.apps[APP_CONSTANTS.EMBEDDED_APP_NAME].main.openView('{{{viewname}}}')">
+			<div id="img"><img src="{{viewicon}}"></div>
+			<span>{{viewlabel}}</span>
+		</div>
+		{{/views}}		
+	</div>
+	<span id="copyright">{{i18n.CopyRight}}</span>
+</body>
+</html>

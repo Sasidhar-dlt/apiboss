@@ -1,0 +1,52 @@
+<!--
+/* 
+ * (C) 2022 TekMonks. All rights reserved.
+ * License: See enclosed license.txt file.
+ */
+ -->
+
+<style>
+  body {
+    width: 100%;
+  }
+
+  
+  select#choices {
+    width: 100%;
+    font-family: inherit;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 8px;
+    border: 0px;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    resize: none;
+    color: #444444;
+    appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 26 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 20L0.875645 0.5L25.1244 0.5L13 20Z" fill="%2398CCFD"/></svg>') !important;
+  background-repeat: no-repeat !important;
+  background-position: right 1em center !important;
+  padding-right: 16px;
+
+  }
+
+  select#choices ::-ms-expand {
+    display: none;
+  }
+
+
+
+</style>
+
+
+{{{styleBody}}}
+<div class="cselect">
+  <select name="choices" id="choices" required="true" class="validate" oninvalid="this.setCustomValidity('{{i18n.SelectDropDown}}')" onchange='monkshu_env.components["drop-down"].disableOrEnableInputField(this)'  oninput="setCustomValidity('')" open>
+    <option value="" disabled selected hidden class="disabled">{{text}}</option>
+    {{#values}}
+    <option value="{{value}}" class="values" id="{{value}}">{{value}}</option>
+    {{/values}}
+  </select>
+</div>

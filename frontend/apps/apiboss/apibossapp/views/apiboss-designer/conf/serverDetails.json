@@ -1,0 +1,7 @@
+{
+    "serverIP": "apiboss.org",
+    "port": "9090",
+    "adminid": "admin",
+    "adminpassword": "DLT4TekMonks",
+    "package": "prod"
+}

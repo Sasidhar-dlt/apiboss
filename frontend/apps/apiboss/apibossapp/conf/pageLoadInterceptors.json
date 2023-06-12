@@ -1,0 +1,6 @@
+[
+    {"module": "apibossapp/js/application.mjs", "function":"interceptPageLoadData"},
+    {"module": "apibossapp/js/loginmanager.mjs", "function":"interceptPageLoad"},
+    {"module": "apibossapp/js/main.mjs", "function":"interceptPageData"},
+    {"module": "apibossapp/js/chooser.mjs", "function":"interceptPageLoadData"}
+]

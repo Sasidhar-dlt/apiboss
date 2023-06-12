@@ -1,0 +1,162 @@
+<style>
+    body {
+        margin: 1.3em;
+        color: #444444;
+    }
+
+    div#container {
+        background-color: #DFF0FE;
+        border-radius: 10px;
+    }
+
+    div#apidesc {
+        padding: 8px 32px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    div#apidesc > img{
+        cursor: pointer;
+    }
+
+    span#exposedpath {
+        color: #0032E4;
+    }
+
+    span#POST {
+        font-family: 'Red Hat Text';
+        font-style: normal;
+        font-weight: 700;
+        text-align: center;
+        color: #FFFFFF;
+        background: #535AFF;
+        border-radius: 5px;
+        padding: 0px 5px;
+        height: 1.1em;
+    }
+
+    span#GET {
+        font-family: 'Red Hat Text';
+        font-style: normal;
+        font-weight: 700;
+        text-align: center;
+        color: #FFFFFF;
+        background: #039000;
+        border-radius: 5px;
+        padding: 0px 10px;
+        height: 1.1em;
+    }
+
+    span#standard {
+        font-weight: bold;
+        color: #282828;
+    }
+    
+    tr{
+        width:100%;
+        display: grid;
+        grid-template-columns: 3em 17em 13em 22em;
+    }
+
+    td{
+        word-break: break-word;
+        padding-right: 7px;
+    }
+
+    div#securityinfo{
+        display: grid;
+        grid-template-columns: 7% 93%; 
+    }
+    div.download-icons {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    div.download-icons img {
+        cursor: pointer;
+    }
+
+    *::-webkit-scrollbar {
+    width: 0.5em !important;
+    height: 0.5em !important;
+    scroll-behavior: smooth !important;
+}
+
+*::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 10px !important;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: darkgrey !important;
+    border-radius: 10px !important;
+    background-clip: padding-box;
+}
+
+</style>
+
+<div id="container">
+    <div id="apidesc">
+        <span>{{description}}</span>
+        <div class="download-icons">
+            <img src="./img/word.svg" onclick='monkshu_env.components["api-contents"].downloadWord()'>
+            <img src="./img/pdf.svg" onclick='monkshu_env.components["api-contents"].downloadPDF()'>
+        </div>
+    </div>
+    <div style="height: 20%;">
+        <div class="apidata-header" style="background-color:#98CCFD; padding: 5px 32px;color:#000000;">
+            Calling this API
+        </div>
+        <div style="padding: 0px 32px;">
+            <p>URL to call this API is <span id="exposedpath">{{exposedpath}}</span></p>
+            <p>The HTTP action to call this API is <span id="{{exposedmethod}}">{{exposedmethod}}</span></p>
+            <p>URL to call this API is <span id="standard">{{standard}}</span> standard</p>
+        </div>
+    </div>
+    <div>
+        <div class="input-headers" style="background-color:#98CCFD; padding: 8px 32px;color:#000000;">The input parameters are</div>
+        <div style="max-height: 6.5em; padding: 10px 32px; overflow: auto;">
+            <table style="border-collapse: separate; border-spacing: 0px 14px;">
+                <tbody>
+                    {{#inputparams}}
+                    <tr>
+                        <td>{{index}}</td>
+                        <td>{{name}}</td>
+                        <td>{{type}}</td>
+                        <td>{{desc}}</td>
+                    </tr>
+                    {{/inputparams}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div>
+        <div class="output-headers" style="background-color:#98CCFD; padding: 8px 32px;color:#000000;">The output parameters are</div>
+        <div style="max-height: 6.5em; padding: 10px 32px; overflow: auto;">
+            <table style="border-collapse: separate; border-spacing: 0px 14px;">
+                <tbody>
+                    {{#outputparams}}
+                    <tr>
+                        <td>{{index}}</td>
+                        <td>{{name}}</td>
+                        <td>{{type}}</td>
+                        <td>{{desc}}</td>
+                    </tr>
+                    {{/outputparams}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div style>
+        <div class="security-headers" style="background-color:#98CCFD; padding: 5px 32px;color:#000000;">Security</div>
+        {{#securitydata}}
+        <div style="padding: 8px 32px;" id ="securityinfo">
+            <span>{{index}}</span>
+            <span>{{value}}</span>
+        </div>
+        {{/securitydata}}
+       
+    </div>
+
+</div>

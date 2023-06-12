@@ -1,0 +1,103 @@
+SCHEMA
+======
+{
+    "topribbon": {"html":"pluggable-ribbon-developer", "styleBody":"url(./views/{{url.view}}/page/topribbon.styleBody.css)", "ribbonTitle":"{{i18n.APIBossDeveloper}}", "ribbonLogo":"./views/{{url.view}}/page/logo.png"},
+    "packages": {"html":"api-list", "label":"{{i18n.DoubleClickToOpen}}", 
+        "onclickHandler":"window.monkshu_env.components['api-list'].openClicked(this,this.id)","styleBody":"span#label{ font-weight: 500;  color: #444444; font-family: 'Red Hat Text';font-size: smaller; text-align: center; background-color: #DFF0FE; padding: 5px;border-top: 1px solid #98CCFD; border-bottom: 1px solid #98CCFD; margin: 0px;} div#container{ border: none ; align-content: flex-start;}"},                                                                                                                                                                                        
+    "apicontent": {"html":"api-contents"},
+    "treeview":{"html":"apiinput-apioutput"},
+    "snippet": {"html":"text-div","text":"Code Snippets", "stylebody":"span#text{margin-left:4em;}"},
+    "nodejs": {"html":"image-button", "img":"./views/{{url.view}}/dialogs/nodejs.svg", "text":"{{i18n.Nodejs}}", 
+               "style":"width:100%; height: 100%;", "onclickHandler":"window.monkshu_env.components['code-snippet-window'].codeSnippetWindow(`{{i18n.Nodejs}}`)", "type":"row", 
+               "styleBody":"url(./views/{{url.view}}/page/image-button-row.styleBody.css)",
+               "color":"#000000", "border":"0.5px solid #98CCFD", "background-color":"#F8FCFF", "active-background-color":"white"},
+    "java": {"html":"image-button", "img":"./views/{{url.view}}/dialogs/java.svg", "text":"{{i18n.Java}}", 
+               "styleBody":"url(./views/{{url.view}}/page/image-button-row.styleBody.css)",
+               "style":"width:100%; height: 100%;", "onclickHandler":"window.monkshu_env.components['code-snippet-window'].codeSnippetWindow(`{{i18n.Java}}`)", "type":"row", 
+               "color":"#000000", "border":"0.5px solid #98CCFD", "background-color":"#F8FCFF", "active-background-color":"white"},
+    "curl": {"html":"image-button", "img":"./views/{{url.view}}/dialogs/curl.svg", "text":"{{i18n.Curl}}", 
+               "styleBody":"url(./views/{{url.view}}/page/image-button-row.styleBody.css)",
+               "style":"width:100%; height: 100%;", "onclickHandler":"window.monkshu_env.components['code-snippet-window'].codeSnippetWindow(`{{i18n.Curl}}`)", "type":"row", 
+               "color":"#000000", "border":"0.5px solid #98CCFD", "background-color":"#F8FCFF", "active-background-color":"white"},
+    "apidetails":{"html":"api-details"},
+    "response": {"html":"text-editor", "downloadfilename":"{{{uriEncodedDescription}}}.js"},
+    "contextmenumain": {"html":"context-menu", "styleBody":"body{font-family: inherit; font-size: smaller;} span.menuicon{display:none;} span.menutext{font-size: small !important;} span.menuitem{padding-bottom: 5px;}"},
+    "space": {"html":"span", "style":"height:100%; display:block; background:rgba(255, 255, 255, 1);"}
+
+
+   
+}
+======
+
+
+LAYOUT
+=================
+------------------------------------------------------
+|                   topribbon                        |                    
+------------------------------------------------------
+|    packages |             apicontent               |
+------------------------------------------------------
+|    packages |           treeview                   |
+------------------------------------------------------
+|   packages  |   snippet |  nodejs  |  java  | curl |
+------------------------------------------------------
+|    packages |      apidetails      |     response  |
+------------------------------------------------------
+
+
+
+
+=================
+Row Heights = 70px, min-content ,18em,3em,32em
+Col Widths = 20%, 20%, 20%, 20%, 20%
+=================
+
+
+CSS CLASSES
+===========
+CONTAINER CLASSES = grid-container-extension
+ITEM CLASSES = grid-item-extension
+PER ITEM CLASS = class
+===========
+
+CSS
+=======
+.grid-container-extension {
+    overflow-y: auto;
+    height: 100%;
+    font-family: 'Red Hat Text';
+     font-style: normal;
+    font-weight: 400;
+}
+
+.grid-item-extension {
+    background-color: rgba(255, 255, 255, 1);
+}
+.class-snippet, .class-nodejs, .class-java, .class-curl{
+    width:85%;
+}
+.class-response{
+    grid-column:4/6;
+    margin:2em 1em 3em 0em;
+}
+.class-apidetails{
+    grid-column:2/4;
+    margin:0.7em 1em 1em 0em;
+}
+
+
+.class-treeview{
+    margin-left:1.4em;
+    margin-right:1.4em;
+    margin-top:0.5em;
+
+}
+
+.item2{
+    height:fit-content
+}
+html, body {
+    margin: 0%;
+}
+
+=======

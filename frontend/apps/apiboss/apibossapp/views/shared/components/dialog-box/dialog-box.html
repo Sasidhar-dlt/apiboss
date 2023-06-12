@@ -1,0 +1,170 @@
+<!--
+/** 
+ * Dialog box hosting component.
+ * (C) 2020 TekMonks. All rights reserved.
+ * License: See enclosed LICENSE file.
+ */
+ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text&display=swap');
+body{
+    margin: 0; padding: 0;
+    font-family: var(--dialog-font, "Red Hat Text");
+    font-size: inherit;
+}
+
+*::-webkit-scrollbar {
+    width: 0.5em !important;
+    scroll-behavior: smooth !important;
+}
+
+*::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 10px !important;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: darkgrey !important;
+    border-radius: 10px !important;
+    background-clip: padding-box;
+}
+
+div#modalcurtain {
+    position: fixed;
+    float: left;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    opacity: 0.4;
+    background:rgba(0, 0, 0, 0.75);
+    z-index: 100;
+}
+
+div#dialog {
+    top: 50%;
+    left: var(--dialog-left, 50%);
+    width: var(--dialog-width, auto);
+    max-height: var(--dialog-max-height, 80vh);
+    height: var(--dialog-height, auto);
+    background: var(--dialog-background, white);
+    padding: var(--dialog-padding, 40px);
+    position: var(--dialog-position, fixed);
+    z-index: 105;
+    box-shadow: var(--box-shadow, 0 0 5px #ccc);
+    animation: var(--animation-name, flyincenter) var(--animation-duration, 0.18s) linear forwards;
+    overflow-y: auto;
+    color: #444444;
+    border: var(--dialog-border, 1px solid #444444);
+    border-radius: var(--dialog-border-radius, 20px);
+    display: flex; 
+    flex-direction: column;
+}
+
+@keyframes flyincenter {
+    0%{filter: blur(4px);transform: translate(var(--animation-left-transform, -50%), calc(-1*(50vh + 100%)));opacity: 0;border-radius: var(--dialog-border-radius, 10px);}
+    25%{filter: blur(3px);transform: translate(var(--animation-left-transform, -50%), calc(-1*(38vh + 88%)));opacity: 0.25;border-radius: var(--dialog-border-radius, 10px);}
+    50%{filter: blur(2px);transform: translate(var(--animation-left-transform, -50%), calc(-1*(27vh + 75%)));opacity: 0.50;border-radius: var(--dialog-border-radius, 10px);}
+    75%{filter: blur(1px);transform: translate(var(--animation-left-transform, -50%), calc(-1*(14vh + 62%)));opacity: 0.75;border-radius: var(--dialog-border-radius, 10px);}
+    100%{filter: blur(0px);transform: translate(var(--animation-left-transform, -50%), -50%);opacity: 1.0;}
+}
+
+@keyframes flyinbottom {
+    0%{filter: blur(4px);transform: translate(var(--animation-left-transform, -50%), calc(50vh - 5%));opacity: 0;border-radius: var(--dialog-border-radius, 10px 10px 0px 0px);}
+    25%{filter: blur(3px);transform: translate(var(--animation-left-transform, -50%), calc(50vh - 29%));opacity: 0.25;border-radius: var(--dialog-border-radius, 10px 10px 0px 0px);}
+    50%{filter: blur(2px);transform: translate(var(--animation-left-transform, -50%), calc(50vh - 52%));opacity: 0.50;border-radius: var(--dialog-border-radius, 10px 10px 0px 0px);}
+    75%{filter: blur(1px);transform: translate(var(--animation-left-transform, -50%), calc(50vh - 76%));opacity: 0.75;border-radius: var(--dialog-border-radius, 10px 10px 0px 0px);}
+    100%{filter: blur(0px);transform: translate(var(--animation-left-transform, -50%), calc(50vh - 100%));opacity: 1.0;border-radius: var(--dialog-border-radius, 10px 10px 0px 0px);}
+}
+
+@keyframes flyintop {
+    0%{filter: blur(4px);transform: translate(var(--animation-left-transform, -50%), calc(-1*(50vh + 95%)));opacity: 0;border-radius: var(--dialog-border-radius, 0px 0px 10px 10px);}
+    25%{filter: blur(3px);transform: translate(var(--animation-left-transform, -50%), calc(-1*(50vh + 71%)));opacity: 0.25;border-radius: var(--dialog-border-radius, 0px 0px 10px 10px);}
+    50%{filter: blur(2px);transform: translate(var(--animation-left-transform, -50%), calc(-1*(50vh + 48%)));opacity: 0.50;border-radius: var(--dialog-border-radius, 0px 0px 10px 10px);}
+    75%{filter: blur(1px);transform: translate(var(--animation-left-transform, -50%), calc(-1*(50vh + 24%)));opacity: 0.75;border-radius: var(--dialog-border-radius, 0px 0px 10px 10px);}
+    100%{filter: blur(0px);transform: translate(var(--animation-left-transform, -50%), -50vh);opacity: 1.0;border-radius: var(--dialog-border-radius, 0px 0px 10px 10px);}
+}
+
+.visible {
+    display: block !important;
+}
+
+span#ok, span#cancel {
+    padding: 10px;
+    margin: 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border-style: none;
+    outline: none;
+    text-align: center;
+    background-color: var(--button-background-color, rgb(51, 204, 102));
+    color: var(--button-text-color, white);
+    font-family: inherit;
+    font-size: smaller;
+    text-transform: uppercase;
+    cursor: default;
+    user-select: none;
+    min-width: 100px;
+}
+
+span#ok:hover, span#cancel:hover {
+    filter: brightness(98%);
+    transition: all 0.3s ease;
+}
+
+span#cancel {margin-left: var(--button-margin, 15px);}
+
+div#buttonbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+div#dialogcontent {
+    margin-bottom: var(--margin-bottom, 40px);
+}
+
+div#error {
+    color: #cc0000;
+    margin-bottom: 10px;
+    text-align: center;
+    visibility: hidden;
+    display: var(--error-display, block);
+}
+
+span#close {
+    position: absolute;   
+    top: 15px;
+    right: 15px;
+    cursor: default;
+    user-select: none;
+}
+
+span#close > img {
+    width: 20px;
+    height: 20px;
+}
+span#close > img#ok {padding-right: 10px;}
+
+</style>
+
+{{{styleBody}}}
+
+{{#modal}}<div id="modalcurtain"></div>{{/modal}}
+<div id="dialog">
+    <span id="close">{{#componentPath}}
+        {{#showOKIcon}}<img id="ok" style="cursor: pointer;" src="{{okIcon}}{{^okIcon}}{{componentPath}}/img/ok.svg{{/okIcon}}" onclick="monkshu_env.components['dialog-box'].submit(this)">{{/showOKIcon}}
+        {{#showCancelIcon}}<img id="close" style="cursor: pointer;" src="{{closeIcon}}{{^closeIcon}}{{componentPath}}/img/close.svg{{/closeIcon}}" onclick="monkshu_env.components['dialog-box'].cancel(this)">{{/showCancelIcon}}
+    {{/componentPath}}</span>
+
+    {{#showErrorNotifier}}<div id="error">bad input</div>{{/showErrorNotifier}}
+
+    <div id="dialogcontent"><!-- The dialog content will go here --></div>
+
+    <div id="buttonbar">
+        {{#showOKButton}}<span id="ok" onclick="monkshu_env.components['dialog-box'].submit(this)">{{#okLabel}}{{.}}{{/okLabel}}{{^okLabel}}{{i18n.OK}}{{/okLabel}}</span>{{/showOKButton}}
+        {{#showCancelButton}}<span id="cancel" onclick="monkshu_env.components['dialog-box'].cancel(this)">{{#cancelLabel}}{{.}}{{/cancelLabel}}{{^cancelLabel}}{{i18n.Cancel}}{{/cancelLabel}}</span>{{/showCancelButton}}
+    </div>
+</div>

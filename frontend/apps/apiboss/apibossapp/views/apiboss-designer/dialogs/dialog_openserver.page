@@ -1,0 +1,81 @@
+SCHEMA
+======
+{
+    "name": {"html":"input", "type":"text", "placeholder":"{{i18n.PackageName}}", "value":"{{modelName}}",  "spellcheck":"false" , "oninvalid":"this.setCustomValidity('{{i18n.FillField}}')" , "oninput":"setCustomValidity('')"},
+    "server": {"html":"input", "type":"text", "placeholder":"{{i18n.Server}}", "spellcheck":"false" , "oninvalid":"this.setCustomValidity('{{i18n.FillField}}')" , "oninput":"setCustomValidity('')"},
+    "port": {"html":"input", "type":"number", "placeholder":"{{i18n.Port}}","spellcheck":"false" , "oninvalid":"this.setCustomValidity('{{i18n.FillField}}')" , "oninput":"setCustomValidity('')"},
+    "adminid": {"html":"input", "type":"text", "placeholder":"{{i18n.AdminID}}", "spellcheck":"false" , "oninvalid":"this.setCustomValidity('{{i18n.FillField}}')" , "oninput":"setCustomValidity('')"},
+    "adminpassword": {"html":"password-box", "style":"width:100%; ", "placeholder":"{{i18n.AdminPassword}}","customValidity":"{{i18n.FillField}}", "styleBody":"span#container{width: 100%;} img.pwimg {width: 2em;} input#pwinput{padding:1em 2em 0.8em 3.5em;border-radius:10px;border:0.5px solid #98CCFD;color:rgb(0,0,0);}"},
+    "connect": {"html":"image-button", "img":"./views/{{url.view}}/dialogs/connect.svg", "text":"{{i18n.Connect}}", 
+        "style":"width:100%; height: 100%;", "onclickHandler":"window.monkshu_env['OPEN_SERVER_HELPER'].connectServerClicked(this)", "type":"column", 
+        "color":"#444444", "border":"0.5px solid #98CCFD", "background-color":"#B6DCFE", "active-background-color":"white"}
+
+}
+======
+
+
+LAYOUT
+=================
+------------------------------------------------
+|                  name                        |
+------------------------------------------------
+|   server    |    port          |   connect   |
+------------------------------------------------
+|   adminid   |   adminpassword  |   connect   |
+------------------------------------------------
+
+=================
+Row Heights = 4em, 4em, 4em
+Col Widths = calc((100% - 10em) / 2), calc((100% - 10em) / 2), 10em
+=================
+
+
+CSS CLASSES
+===========
+CONTAINER CLASSES = grid-container-extension
+ITEM CLASSES = grid-item-extension
+PER ITEM CLASS = class
+===========
+
+CSS
+=======
+.grid-container-extension {
+    height: 100%;
+}
+
+.grid-item-extension {
+    background-color: var(--dialog-background, white);
+    padding: 10px 20px 10px 20px;
+    display: flex;
+    flex-flow: row;
+    box-sizing: border-box;
+}
+
+.grid-item-extension > input, .grid-item-extension > input:focus {
+    width: 100%;
+    border-radius: 10px;
+    border: 0.5px solid #98CCFD;
+    outline: none;
+    padding: 10px;
+    resize: none;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+::placeholder {opacity: 0.8;}
+
+body {
+    margin: 0%;
+    display: inline-block;
+    width: 100%;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+=======

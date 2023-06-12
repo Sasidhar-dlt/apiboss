@@ -1,0 +1,130 @@
+<style>
+    table {
+    font-size: smaller;
+    font-family: inherit;
+    border-radius: 5px 5px 5px 0px;
+    overflow-y: scroll;
+    width: 100%;
+    border-spacing: 0px;
+    table-layout: fixed;
+    overscroll-behavior: auto;
+    border-radius: 10px;
+}
+
+
+td {
+    background-color: white;
+    color: #444444;
+    padding: 0.5em;
+    width: 10em;
+    border-radius: 0px;
+    overflow: auto;
+}
+
+tr{
+    border: 1px solid #B6DEFF;
+}
+
+td>textarea {
+    background-color: transparent;
+    border: 0px;
+    outline: none;
+    color: inherit;
+    resize: none;
+    padding: 4px;
+    width: 100%;
+    overflow: hidden;
+    font-family: inherit;
+    display: block;
+    box-sizing: border-box;
+}
+
+
+
+tr:first-child > td {
+    background-color: #98CCFD; 
+    padding: 10px;
+    font-family: inherit;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #444444;
+    overflow: hidden;
+}
+
+
+
+tr:first-child > td:last-child {border-color: #98CCFD; border-top-right-radius: 4px;}
+
+tr:last-child > td:last-child {border-color: #98CCFD; border-bottom-right-radius: 4px;}
+
+
+td.active > textarea:focus {
+    outline: none;
+    color: #444444;
+}
+td.first{width: 30%;border-right: 1px solid #B6DEFF;}
+td.first > textarea {cursor: default;}
+tr.firstrow>td, tr.secondrow>td,tr.thirdrow>td, tr.fourthrow>td{border-bottom: 1px solid #B6DEFF;}
+
+
+
+/* td.active:focus-within {background-color: #DFF0FE; color: #444444;} */
+
+
+span#tabbar > span.tabbutton {
+    background-color: #D6EFFF;
+    border: 1px solid #4788C7;
+    border-top: transparent;
+}
+
+table::-webkit-scrollbar {
+    width: 0.3em !important;
+    scroll-behavior: smooth !important;
+}
+
+table::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+    margin: 40px;
+    border-radius: 10px !important;
+}
+table::-webkit-scrollbar-thumb {
+    background-color: darkgrey !important;
+    border-radius: 10px !important;
+    background-clip: padding-box;
+
+}
+</style>
+
+<table id="inputtable" style="overflow: hidden;">
+    <tbody>
+        <tr>
+        <td style="position: relative;" class="first"> Field <div style="position: absolute;"></div><div style="position: absolute;"></div></td>
+        <td style="position: relative;"> Value <div style="position: absolute;"></div><div style="position: absolute;"></div></td>
+       </tr>
+       <tr class="tr firstrow">
+        <td class="first" ><textarea rows="1"  spellcheck="false" readonly="true" >Package</textarea> </td>
+        <td class="active"><textarea id = "package" rows="1"  spellcheck="false"></textarea>  </td>
+    </tr>
+       <tr class="tr secondrow">
+        <td class="first"><textarea rows="1"  spellcheck="false" readonly="true">Server IP Address</textarea> </td>
+        <td class="active" ><textarea  id ="server" rows="1"  spellcheck="false"  ></textarea>  </td>
+    </tr>
+    <tr class="tr thirdrow">
+        <td class="first" ><textarea rows="1"  spellcheck="false" readonly="true" >Port</textarea> </td>
+        <td class="active"><textarea id = "port" rows="1"  spellcheck="false"></textarea>  </td>
+    </tr>
+    
+    <tr class="tr fourthrow">
+        <td class="first" ><textarea rows="1"  spellcheck="false" readonly="true" >Admin ID</textarea> </td>
+        <td class="active"><textarea id = "adminid" rows="1"  spellcheck="false"></textarea>  </td>
+    </tr>
+    <tr class="tr fifthrow">
+        <td class="first" ><textarea rows="1"  spellcheck="false" readonly="true" >Admin Password</textarea> </td>
+        <td class="active"><password-box style="width:100%;" id="adminpassword" rows="1" spellcheck="false"
+            styleBody="span#container{width: 100%;} input#pwinput{background-color: transparent; border: 0px; outline: none; color: inherit;
+                resize: none; padding: 4px; width: 100%; overflow: hidden; font-family: inherit; display: block; box-sizing: border-box;} img.pwimg{display:none;}"></password-box>  </td>
+    </tr>
+
+</tbody></table>

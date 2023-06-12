@@ -1,0 +1,9 @@
+{"ts":"2023:06:10:17:15:20","level":"info","message":"[127.0.0.1] Registration succeeded ankit.saxena@deeplogictech.com."}
+{"ts":"2023:06:10:17:15:21","level":"error","message":"[127.0.0.1] Error in initializing view http://localhost:8080/apps/apiboss/apibossapp."}
+{"ts":"2023:06:10:17:30:27","level":"error","message":"[127.0.0.1] Error in initializing view http://localhost:8080/apps/apiboss/apibossapp."}
+{"ts":"2023:06:10:17:31:01","level":"info","message":"[127.0.0.1] Logout of user ID: ankit.saxena@deeplogictech.com."}
+{"ts":"2023:06:10:17:31:07","level":"info","message":"[127.0.0.1] Logout of user ID: undefined."}
+{"ts":"2023:06:10:17:31:47","level":"info","message":"[127.0.0.1] Login succeeded for ankit.saxena@deeplogictech.com."}
+{"ts":"2023:06:10:17:31:47","level":"error","message":"[127.0.0.1] Error in initializing view http://localhost:8080/apps/apiboss/apibossapp/views/apiboss-designer."}
+{"ts":"2023:06:10:22:42:40","level":"info","message":"[127.0.0.1] Login succeeded for ankit.saxena@deeplogictech.com."}
+{"ts":"2023:06:10:22:42:40","level":"error","message":"[127.0.0.1] Error in initializing view http://localhost:8080/apps/apiboss/apibossapp/views/apiboss-designer."}

@@ -1,0 +1,32 @@
+{
+    "extensions": [
+        "redirect"
+    ],
+    "redirects": [
+        {
+            "^http(.*)://([^/]+?)/index.html$": "http{{{$1}}}://{{{$2}}}/apps/apiboss/loginappframework/index.html"
+        },
+        {
+            "^http(.*)://([^/]+?)/$": "http{{{$1}}}://{{{$2}}}/apps/apiboss/loginappframework/index.html"
+        },
+        {
+            "^http(.*)://([^/]+?)$": "http{{{$1}}}://{{{$2}}}/apps/apiboss/loginappframework/index.html"
+        }
+    ],
+    "diskCache": {
+        "refresh": 1000,
+        "dontCache": [
+            ".*\\.pdf"
+        ],
+        "maxSizeInMB": "1024",
+        "ignoreAfterMaxHits": 10
+    },
+    "httpdHeaders": {
+        "Cache-Control": "max-age=604800, must-revalidate, private"
+    },
+    "ssl": false,
+    "sslKeyFile": "C:\\Users\\rvkapoor\\source\\etc\\dnsip_privkey.pem",
+    "sslCertFile": "C:\\Users\\rvkapoor\\source\\etc\\dnsip_fullchain.pem",
+    "port": 8080,
+    "host": "{{{hostname}}}"
+}

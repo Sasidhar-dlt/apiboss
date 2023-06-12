@@ -1,0 +1,74 @@
+SCHEMA
+======
+{
+    "content": {"html":"text-div","text":"Server Details for Developer Portal"},
+    "output": {"html":"html-fragment", 
+        "htmlcontent":"encodeURIComponent(url(./views/{{url.view}}/dialogs/dialog_settings.html))",
+        "style":"width: 100%"},
+    "apikey": {"html":"input", "type":"text", "placeholder":"{{i18n.APIKeyFor}}",  "spellcheck":"false","spellcheck":"false" , "oninvalid":"this.setCustomValidity('{{i18n.validData}}')" , "oninput":"setCustomValidity('')"}
+
+}
+======
+
+
+LAYOUT
+=================
+------------------------------------
+|           content                |
+------------------------------------
+|            output                |
+------------------------------------
+|            apikey                |      
+------------------------------------
+=================
+Row Heights = 2.5em, 17em, 4em
+Col Widths = 100%
+=================
+
+
+CSS CLASSES
+===========
+CONTAINER CLASSES = grid-container-extension
+ITEM CLASSES = grid-item-extension
+PER ITEM CLASS = class
+===========
+
+CSS
+=======
+.grid-container-extension {
+    height: 100%;
+}
+
+.grid-item-extension {
+    background-color: var(--dialog-background, white);
+    padding: 10px 20px 10px 20px;
+    display: flex;
+    flex-flow: row;
+    box-sizing: border-box;
+}
+
+.grid-item-extension > input, .grid-item-extension > input:focus, 
+        .grid-item-extension > select, .grid-item-extension > select:focus, 
+        .grid-item-extension > textarea, .grid-item-extension > textarea:focus {
+    width: 100%;
+    border-radius: 10px;
+    border: 0.5px solid #98CCFD;
+    outline: none;
+    padding: 10px;
+    resize: none;
+    font-family: inherit;
+    background-color: white;
+    margin: 0px 5px 0px 5px;
+}
+
+::placeholder {opacity: 1;}
+
+
+html, body {
+    margin: 0%;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+=======

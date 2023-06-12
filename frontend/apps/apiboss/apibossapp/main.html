@@ -1,0 +1,62 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text&display=swap');
+        @import '../apibossapp/css/scrollbar.css';
+        @import '../apibossapp/css/loader.css';
+        @import '../apibossapp/css/dialog.css';
+
+        *::-webkit-scrollbar {
+            width: 0.5em !important;
+            height: 0.5em !important;
+
+            scroll-behavior: smooth !important;
+        }
+
+        *::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+            border-radius: 10px !important;
+        }
+
+        *::-webkit-scrollbar-thumb {
+            background-color: darkgrey !important;
+            border-radius: 10px !important;
+            background-clip: padding-box;
+        }
+
+        context-menu {
+            position: absolute;
+            z-index: 1000;
+            width: 100%;
+            height: 0px;
+        }
+    </style>
+
+    <title>{{i18n.Title}}</title>
+    <link href="./img/favicon.ico" rel="icon" type="image/x-icon">
+
+    <script type="module">
+        import { password_box } from "./components/password-box/password-box.mjs"; 
+    </script>
+
+
+    <script type="module">
+        import { main } from "../apibossapp/js/main.mjs"; main.init(new URL("../apibossapp/views/{{url.view}}", window.location.href).href, "{{url.page}}");</script>
+    <script type="text/javascript">history.pushState(null, document.title, location.href);
+        window.addEventListener('popstate', function (event) {
+            history.pushState(null, document.title, location.href);
+        });</script>
+</head>
+
+<body style="margin:0px">
+
+    <!-- pageGenerator is appended here by main's main.mjs file -->
+    <context-menu id="contextmenumain" styleBody="body{font-family: Raleway;font-size: smaller;}   span.menuicon{display:none;}   span.menutext{font-size: small !important;} span.menuitem{padding-bottom: 5px;}"></context-menu>
+</body>
+
+</html>
