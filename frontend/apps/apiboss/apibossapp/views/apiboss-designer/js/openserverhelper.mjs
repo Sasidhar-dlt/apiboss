@@ -7,7 +7,8 @@ import {i18n} from "/framework/js/i18n.mjs";
 import {util} from "/framework/js/util.mjs";
 import {serverManager} from "./serverManager.js";
 import {blackboard} from "/framework/js/blackboard.mjs";
-import { password_box } from "../../../components/password-box/password-box.mjs";
+// import { password_box } from "../../../components/password-box/password-box.mjs";
+import {password_box} from "../../../../loginappframework/components/password-box/password-box.mjs";
 
 const MODULE_PATH = util.getModulePath(import.meta), DIALOG = window.monkshu_env.components["dialog-box"],
     MSG_FILE_UPLOADED = "FILE_UPLOADED",DEFAULT_HOST_ID = "__org_monkshu_dialog_box";

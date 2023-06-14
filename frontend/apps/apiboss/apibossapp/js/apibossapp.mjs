@@ -36,8 +36,8 @@ async function _createdata(data) {
         if (viewsAllowed.length > 1) data.showhome = true;
         viewPath = `${APP_CONSTANTS.EMBEDDED_APP_PATH}`;
     }
-
-    const viewURL = `${viewPath}/chooser.html`, viewMainMJS = `${viewPath}/js/chooser.mjs`;
+    
+    const viewURL = `${viewPath}/../../main.html?view=apiboss-designer`, viewMainMJS = `${viewPath}/../../js/main.mjs`;
     data.viewpath = viewPath; 
     try { const viewMain = await import(viewMainMJS); await viewMain.main.initView(data, apibossapp); }    // init the view before loading it
     catch (err) { LOG.error(`Error in initializing view ${viewPath}.`); }

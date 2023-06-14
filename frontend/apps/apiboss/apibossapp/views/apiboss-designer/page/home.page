@@ -2,10 +2,10 @@ SCHEMA
 ======
 {
     "space": {"html":"span", "style":"height:100%; display:block; background:#DFF0FE;"},
-    "topribbon": {"html":"pluggable-ribbon-home", "styleBody":"url(./views/{{url.view}}/page/topribbon.styleBody.css)", "ribbonTitle":"{{i18n.APIBossHome}}", "ribbonLogo":"./views/{{url.view}}/page/logo.png"},
-    "sideribbon": {"html":"pluggable-ribbon-home", "styleBody":"url(./views/{{url.view}}/page/sideribbon.styleBody.css)"},
-    "flowui": {"html":"flow-diagram", "id":"flowui", "styleBody":"url(./views/{{url.view}}/page/flowui.styleBody.css)",
-        "mxGraphStyleBody":"url(./views/{{url.view}}/page/flowui.mxGraph.styleBody.css)"}
+    "topribbon": {"html":"pluggable-ribbon-home", "styleBody":"url(../apibossapp/views/apiboss-designer/page/topribbon.styleBody.css)", "ribbonTitle":"{{i18n.APIBossHome}}", "ribbonLogo":"../apibossapp/views/apiboss-designer/page/logo.png"},
+    "sideribbon": {"html":"pluggable-ribbon-home", "styleBody":"url(../apibossapp/views/apiboss-designer/page/sideribbon.styleBody.css)"},
+    "flowui": {"html":"flow-diagram", "id":"flowui", "styleBody":"url(../apibossapp/views/apiboss-designer/page/flowui.styleBody.css)",
+        "mxGraphStyleBody":"url(../apibossapp/views/apiboss-designer/page/flowui.mxGraph.styleBody.css)"}
 }
 ======
 

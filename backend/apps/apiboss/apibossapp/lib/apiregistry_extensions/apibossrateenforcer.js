@@ -5,7 +5,7 @@
  * Enforces rate policies. This one also indirectly ensures API has
  * the right key, as we enforce SLA policies based on keys.
  */
-const APPCONSTANTS = require(`${__dirname}/../constants.js`);
+const APPCONSTANTS = require(`${__dirname}/../apibossappconstants.js`);
 const utils = require(`${CONSTANTS.LIBDIR}/utils.js`);
 
 

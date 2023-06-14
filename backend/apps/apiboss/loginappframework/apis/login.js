@@ -74,7 +74,7 @@ exports.doService = async (jsonReq, servObject) => {
 		});	
 	} else LOG.error(`Bad login or not approved for ID: ${jsonReq.id}.`);
 
-	return {...result, verified: result.verified==1?true:false};
+	return {...result, verified: result.verified==1?true:false,domain:result.domain};
 }
 
 exports.getID = headers => {

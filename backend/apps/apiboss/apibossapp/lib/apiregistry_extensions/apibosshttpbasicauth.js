@@ -6,7 +6,7 @@
  * the right key, as we enforce SLA policies based on keys.
  */
 const cryptmod = require(`${CONSTANTS.LIBDIR}/crypt.js`);
-const APPCONSTANTS = require(`${__dirname}/../constants.js`);
+const APPCONSTANTS = require(`${__dirname}/../apibossappconstants.js`);
 const HTTPAUTH_DISTM_KEY = "__org_monkshu_apiboss_httpauths";
 
 let conf;

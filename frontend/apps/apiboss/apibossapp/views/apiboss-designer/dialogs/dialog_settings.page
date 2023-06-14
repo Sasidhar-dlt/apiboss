@@ -3,7 +3,7 @@ SCHEMA
 {
     "content": {"html":"text-div","text":"Server Details for Developer Portal"},
     "output": {"html":"html-fragment", 
-        "htmlcontent":"encodeURIComponent(url(./views/{{url.view}}/dialogs/dialog_settings.html))",
+        "htmlcontent":"encodeURIComponent(url(..apibossapp/views/apiboss-designer/dialogs/dialog_settings.html))",
         "style":"width: 100%"},
     "apikey": {"html":"input", "type":"text", "placeholder":"{{i18n.APIKeyFor}}",  "spellcheck":"false","spellcheck":"false" , "oninvalid":"this.setCustomValidity('{{i18n.validData}}')" , "oninput":"setCustomValidity('')"}
 

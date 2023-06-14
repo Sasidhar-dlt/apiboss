@@ -10,7 +10,8 @@ import {blackboard} from "/framework/js/blackboard.mjs";
 import {apibossmodel} from "../model/apibossmodel.mjs";
 import {page_generator} from "/framework/components/page-generator/page-generator.mjs";
 import { session } from "/framework/js/session.mjs";
-import { password_box } from "../../../components/password-box/password-box.mjs";
+// import { password_box } from "../../../components/password-box/password-box.mjs";
+import {password_box} from "../../../../loginappframework/components/password-box/password-box.mjs";
 import {loader} from "../../../js/loader.mjs";
 
 const MODULE_PATH = util.getModulePath(import.meta), VIEW_PATH=`${MODULE_PATH}/..`, MSG_GET_MODEL_NAME = "GET_MODEL_NAME", 

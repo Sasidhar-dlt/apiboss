@@ -1,7 +1,7 @@
 import { util } from "/framework/js/util.mjs";
 import { i18n } from "/framework/js/i18n.mjs";
 import { apimanager as apiman } from "/framework/js/apimanager.mjs";
-import { APP_CONSTANTS } from "../../../js/constants.mjs";
+// import { APP_CONSTANTS } from "../../../js/constants.mjs";
 import { loader } from "../../../js/loader.mjs";
 import { session } from "/framework/js/session.mjs";
 import { securityguard } from "/framework/js/securityguard.mjs";
@@ -20,7 +20,7 @@ async function getItemList() {
         const org = new String(session.get(APP_CONSTANTS.USERORG));
         const userid = new String(session.get(APP_CONSTANTS.USERID));
         const role = securityguard.getCurrentRole();
-        const domain = new String(session.get("__org_domain"));
+        const domain = new String(session.get(APP_CONSTANTS.USERORGDOMAIN));
         await loader.beforeLoading();
         apiman.registerAPIKeys({ "*": "fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389" }, "X-API-Key");
         const defaultSeverDetails = await apiman.rest(APP_CONSTANTS.API_CREATEORGETSETTINGS, "POST", { org, id: userid }, true, true);

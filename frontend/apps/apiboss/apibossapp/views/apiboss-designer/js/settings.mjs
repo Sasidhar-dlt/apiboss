@@ -13,7 +13,8 @@ import { html_fragment } from "../../shared/components/html-fragment/html-fragme
 import { apimanager as apiman } from "/framework/js/apimanager.mjs";
 
 import { loader } from "../../../js/loader.mjs";
-import { password_box } from "../../../components/password-box/password-box.mjs";
+// import { password_box } from "../../../components/password-box/password-box.mjs";
+import {password_box} from "../../../../loginappframework/components/password-box/password-box.mjs";
 
 const MODULE_PATH = util.getModulePath(import.meta), VIEW_PATH = `${MODULE_PATH}/..`, MSG_GET_MODEL_NAME = "GET_MODEL_NAME", MSG_FILE_UPLOADED = "FILE_UPLOADED",
     MSG_RENAME_MODEL = "RENAME_MODEL", DIALOG_RET_PROPS = ["apikey"], ORG_METADATA = "__org_metadata",

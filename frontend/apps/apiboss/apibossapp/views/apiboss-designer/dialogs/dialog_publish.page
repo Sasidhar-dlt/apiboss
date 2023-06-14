@@ -5,7 +5,7 @@ SCHEMA
     "server": {"html":"input", "type":"text", "placeholder":"{{i18n.Server}}", "spellcheck":"false" , "oninvalid":"this.setCustomValidity('{{i18n.FillField}}')" , "oninput":"setCustomValidity('')","required":"false"},
     "port": {"html":"input", "type":"number", "placeholder":"{{i18n.Port}}",  "spellcheck":"false" , "oninvalid":"this.setCustomValidity('{{i18n.FillField}}')" , "oninput":"setCustomValidity('')","required":"false"},
     "adminid": {"html":"input", "type":"text", "placeholder":"{{i18n.AdminID}}", "spellcheck":"false" , "oninvalid":"this.setCustomValidity('{{i18n.FillField}}')" , "oninput":"setCustomValidity('')"},
-    "adminpassword": {"html":"password-box", "style":"width:100%; ", "placeholder":"{{i18n.AdminPassword}}","customValidity":"{{i18n.FillField}}", "styleBody":"span#container{width: 100%;} img.pwimg {width: 2em;} input#pwinput{padding:1em 2em 1em 3.5em;border-radius:10px;border:0.5px solid #98CCFD;color:rgb(0,0,0);}"}
+    "adminpassword": {"html":"password-box", "style":"width:100%; ", "placeholder":"{{i18n.AdminPassword}}","customValidity":"{{i18n.FillField}}", "styleBody":"span#container{width: 100%;} img.pwimg {width: 2em;} input#pwinput{padding:0.9em;border-radius:10px;border:0.5px solid #98CCFD;color:inherit;background-color: #ffffff;}"}
 }
 ======
 

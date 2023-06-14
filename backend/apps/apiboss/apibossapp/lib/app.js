@@ -5,4 +5,4 @@
  * App file for APIBoss
  */
 
-exports.initSync = _ => {global.APPCONSTANTS = require(`${__dirname}/constants.js`)}
+exports.initSync = _ => {global.APPCONSTANTS = require(`${__dirname}/apibossappconstants.js`)}

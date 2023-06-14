@@ -2,7 +2,8 @@
  * (C) 2020 TekMonks. All rights reserved.
  */
 import {util} from "/framework/js/util.mjs";
-import {application} from "../../../../../../js/application.mjs";
+// import {application} from "../../../../../../js/application.mjs";
+import { application } from "../../../../../../../loginappframework/js/application.mjs";
 
 const PLUGIN_PATH = util.getModulePath(import.meta);
 let IMAGE, I18N;

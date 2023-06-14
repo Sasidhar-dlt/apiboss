@@ -46,7 +46,7 @@
 
 
     <script type="module">
-        import { main } from "../apibossapp/js/main.mjs"; main.init(new URL("../apibossapp/views/{{url.view}}", window.location.href).href, "{{url.page}}");</script>
+        import { main } from "../apibossapp/js/main.mjs"; main.init(new URL("../apibossapp/views/apiboss-designer", window.location.href).href, "{{url.page}}");</script>
     <script type="text/javascript">history.pushState(null, document.title, location.href);
         window.addEventListener('popstate', function (event) {
             history.pushState(null, document.title, location.href);

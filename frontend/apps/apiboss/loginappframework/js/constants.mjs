@@ -31,8 +31,8 @@ export const APP_CONSTANTS = {
     APIBOSS_MAIN_HTML: `${EMBEDDED_APP_PATH}/main.html`,
 
 
-    APIBOSS_CONF_PATH: `${APP_PATH}/views/apiboss-designer/conf`,
-    IMG_SRC: `${APP_PATH}/img`,
+    APIBOSS_CONF_PATH: `${EMBEDDED_APP_PATH}/views/apiboss-designer/conf`,
+    IMG_SRC: `${EMBEDDED_APP_PATH}/img`,
     // DIALOGS_PATH: APP_PATH+"/dialogs",
 
     API_LIST_USER_APIS:`${BACKEND}/apps/apiboss/admin/listuserapis`,

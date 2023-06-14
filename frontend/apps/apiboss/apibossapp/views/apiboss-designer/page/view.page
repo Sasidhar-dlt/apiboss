@@ -2,7 +2,7 @@ SCHEMA
 ======
 {
     "space": {"html":"span", "style":"height:100%; display:block; background:#DFF0FE;"},
-    "topribbon": {"html":"pluggable-ribbon", "styleBody":"url(./views/{{url.view}}/page/topribbon.styleBody.css)", "ribbonTitle":"{{i18n.APIBossView}}", "ribbonLogo":"./views/{{url.view}}/page/logo.png"},
+    "topribbon": {"html":"pluggable-ribbon", "styleBody":"url(../apibossapp/views/apiboss-designer/page/topribbon.styleBody.css)", "ribbonTitle":"{{i18n.APIBossView}}", "ribbonLogo":"../apibossapp/views/apiboss-designer/page/logo.png"},
     "packages": {"html":"item-list", "label":"{{i18n.DoubleClickToOpen}}", 
         "ondblclickHandler":"window.monkshu_env.components['item-list'].openClicked(this,this.id)", "style":"width:100%","styleBody":"span#label{ font-weight: 500;  color: #000000; font-family: 'Red Hat Text';font-size: smaller; text-align: center; background-color: #DFF0FE; padding: 5px;border-top: 1px solid #98CCFD; border-bottom: 1px solid #98CCFD; margin: 0px;} div#container{ border: none ; align-content: flex-start;} div#container>div {width:12em}"},                                                                                            
     "contextmenumain": {"html":"context-menu", "styleBody":"body{font-family: inherit; font-size: smaller;} span.menuicon{display:none;} span.menutext{font-size: small !important;} span.menuitem{padding-bottom: 5px;}"}
@@ -20,7 +20,7 @@ LAYOUT
 |        contextmenumain    |
 -----------------------------
 =================
-Row Heights = 70px, calc(100vh - 70px), 0px
+Row Heights = 70px, calc(100vh - 70px - 7em), 0px
 Col Widths = 90px, calc(100% - 90px)
 =================
 
