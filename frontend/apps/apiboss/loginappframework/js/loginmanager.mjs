@@ -11,6 +11,7 @@ import {apimanager as apiman} from "/framework/js/apimanager.mjs";
 
 const LOGOUT_LISTENERS = "__loginmanager_logout_listeners", 
     TIMEOUT_CURRENT = "__loginmanager_timeout_current";
+const ORG_METADATA = "__org_metadata",ORG_DEV_METADATA = "__org_dev_metadata";
 
 async function signin(id, pass, otp) {
     const pwph = `${id} ${pass}`;

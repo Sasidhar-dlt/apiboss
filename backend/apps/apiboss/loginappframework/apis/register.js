@@ -11,7 +11,7 @@ const userid = require(`${APP_CONSTANTS.LIB_DIR}/userid.js`);
 const queueExecutor = require(`${CONSTANTS.LIBDIR}/queueExecutor.js`);
 const emailTemplate = require(`${APP_CONSTANTS.CONF_DIR}/email.json`);
 
-const DEFAULT_QUEUE_DELAY = 500, NEW_USER_LISTENERS_MEMORY_KEY = "__org_monkshu_loginapp_registeration_listeners", 
+const DEFAULT_QUEUE_DELAY = 500, NEW_USER_LISTENERS_MEMORY_KEY = "__org_monkshu_loginapp_registeration_listeners", LOGIN_LISTENERS_MEMORY_KEY = "__org_monkshu_loginapp_login_listeners", 
 	REASONS = {ID_EXISTS: "exists", OTP_ERROR: "otp", INTERNAL_ERROR: "internal", 
 		SECURITY_ERROR: "securityerror", DOMAIN_ERROR: "domainerror", ID_DOESNT_EXIST: "iddoesntexist"};
 
@@ -78,7 +78,7 @@ exports.addUser = async (jsonReq, servObject, byAdmin=false) => {
 	
 	return {...result, needs_verification: verifyEmail, 
 		reason:result.result?undefined:(result.reason==userid.ID_EXISTS?REASONS.ID_EXISTS:REASONS.INTERNAL_ERROR),
-		approved: result.approved==1?true:false};
+		approved: result.approved==1?true:false,domain:result.domain};
 }
 
 exports.updateOrgAndDomain = async jsonReq => {

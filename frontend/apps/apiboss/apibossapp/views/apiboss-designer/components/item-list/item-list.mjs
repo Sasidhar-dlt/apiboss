@@ -39,7 +39,7 @@ function _addDBLClickHandlerToItems(items, ondblclick) {
 }
 async function openClicked(element, elementid) {
 	await loader.beforeLoading();_disableButton(element);
-	router.loadPage(`${APP_CONSTANTS.MAIN_HTML}?view=apiboss-designer&page=developer`);
+	router.loadPage(`${APP_CONSTANTS.APIBOSS_MAIN_HTML}?view=apiboss-designer&page=developer`);
 	window.monkshu_env.components["api-contents"].bindApiContents(elementid);
 	window.monkshu_env.components["apiinput-apioutput"].bindApiInputOutputParameters(elementid);
 	window.monkshu_env.components["api-details"].updateExposedpathandMethod(elementid);

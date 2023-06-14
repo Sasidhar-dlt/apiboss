@@ -3,11 +3,11 @@
  * (C) 2022 TekMonks. All rights reserved.
  * License: See enclosed LICENSE file.
  */
-import { algos } from "./algos.mjs";
+// import { algos } from "./algos.mjs";
 import { util } from "/framework/js/util.mjs";
 import { blackboard } from "/framework/js/blackboard.mjs";
 import { session } from "/framework/js/session.mjs";
-import { APP_CONSTANTS } from "../../../js/constants.mjs";
+// import { APP_CONSTANTS } from "../../../js/constants.mjs";
 
 const EMPTY_MODEL = { apis: [], policies: [] }, DEFAULT_BUNDLE = "apis";
 let apibossmodelObj = EMPTY_MODEL, idCache = {}, current_command_bundle = DEFAULT_BUNDLE;
@@ -111,7 +111,7 @@ function getModel() {
 }
 
 function getparsedData() {
-    let domain = getRootDomain(session.get("__org_domain").toString());
+    let domain = getRootDomain(session.get(APP_CONSTANTS.USERORGDOMAIN).toString());
     let parsedData = {},finalData = [], rateLimit = {}, inputoutput = {}, apiregistrydata = {};
     const retModel = util.clone(apibossmodelObj);
     if(!(retModel.apis.length>0 && retModel.policies.length>0)) return {result:false,key:"Require data is not available to publish"};

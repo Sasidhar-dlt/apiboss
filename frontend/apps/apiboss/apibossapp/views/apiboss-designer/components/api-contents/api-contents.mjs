@@ -4,12 +4,13 @@
  */
  import { util } from "/framework/js/util.mjs";
  import { monkshu_component } from "/framework/js/monkshu_component.mjs";
- import { APP_CONSTANTS } from "../../../../js/constants.mjs";
+//  import { APP_CONSTANTS } from "../../../../js/constants.mjs";
  import { code_snippet_window } from "../code-snippet-window/code-snippet-window.mjs";
  import { session } from "/framework/js/session.mjs";
 import { apibossmodel } from "../../model/apibossmodel.mjs";
  
- const COMPONENT_PATH = util.getModulePath(import.meta),VIEW_PATH=APP_CONSTANTS.CONF_PATH,ORG_DEV_METADATA = "__org_dev_metadata";
+//  const COMPONENT_PATH = util.getModulePath(import.meta),VIEW_PATH=APP_CONSTANTS.CONF_PATH,ORG_DEV_METADATA = "__org_dev_metadata";
+const COMPONENT_PATH = util.getModulePath(import.meta),ORG_DEV_METADATA = "__org_dev_metadata";
  let docData,model,serverDetails, exposedpath;
  
  
@@ -30,7 +31,7 @@ import { apibossmodel } from "../../model/apibossmodel.mjs";
  async function bindApiContents(elementid) {
    const data = {}
   //  let userid = session.get(APP_CONSTANTS.USERID);
-  let domain = apibossmodel.getRootDomain((session.get("__org_domain").toString()));
+  let domain = apibossmodel.getRootDomain((session.get(APP_CONSTANTS.USERORGDOMAIN).toString()));
 
    model = session.get(ORG_DEV_METADATA),serverDetails =JSON.parse(session.get("__org_server_details"));;
    for (const api of model.apis) {

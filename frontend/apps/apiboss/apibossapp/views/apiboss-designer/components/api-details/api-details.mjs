@@ -6,14 +6,15 @@ import { util } from "/framework/js/util.mjs";
 import { monkshu_component } from "/framework/js/monkshu_component.mjs";
 import { text_editor } from "../text-editor/text-editor.mjs";
 import { apimanager as apiman } from "/framework/js/apimanager.mjs";
-import { APP_CONSTANTS } from "../../../../js/constants.mjs";
+// import { APP_CONSTANTS } from "../../../../js/constants.mjs";
 import { session } from "/framework/js/session.mjs";
 import { code_snippet_window } from "../code-snippet-window/code-snippet-window.mjs";
 import { loader } from "../../../../js/loader.mjs";
 import {page_generator} from "/framework/components/page-generator/page-generator.mjs";
 import { apibossmodel } from "../../model/apibossmodel.mjs";
 
-const COMPONENT_PATH = util.getModulePath(import.meta), VIEW_PATH = APP_CONSTANTS.CONF_PATH,ORG_DEV_METADATA = "__org_dev_metadata", APIMANAGER_SESSIONKEY = "__org_monkshu_APIManager";
+// const COMPONENT_PATH = util.getModulePath(import.meta), VIEW_PATH = APP_CONSTANTS.CONF_PATH,ORG_DEV_METADATA = "__org_dev_metadata", APIMANAGER_SESSIONKEY = "__org_monkshu_APIManager";
+const COMPONENT_PATH = util.getModulePath(import.meta), ORG_DEV_METADATA = "__org_dev_metadata", APIMANAGER_SESSIONKEY = "__org_monkshu_APIManager";
 
 let model, target, apiname, serverDetails, method;
 
@@ -31,7 +32,7 @@ async function elementRendered(element, initialRender) {
   let totalSize =shadowRoot.querySelector('div.item2').offsetHeight+shadowRoot.querySelector('div.item3').offsetHeight+shadowRoot.querySelector('div.item5').offsetHeight+shadowRoot.querySelector('div.item8').offsetHeight + 30 ;
   shadowRoot.querySelector('div.item1').style.maxHeight=totalSize+'px';
   // let userid = session.get(APP_CONSTANTS.USERID);
-  let domain = apibossmodel.getRootDomain((session.get("__org_domain").toString()));
+  let domain = apibossmodel.getRootDomain((session.get(APP_CONSTANTS.USERORGDOMAIN).toString()));
   const data = {};
   if (initialRender) {
     model = session.get(ORG_DEV_METADATA);
@@ -71,7 +72,7 @@ function updateExposedpathandMethod(elementid, updateParam) {
   if (updateParam) {
     const data = {};
     let userid = session.get(APP_CONSTANTS.USERID);
-    let domain = apibossmodel.getRootDomain((session.get("__org_domain").toString()));
+    let domain = apibossmodel.getRootDomain((session.get(APP_CONSTANTS.USERORGDOMAIN).toString()));
     for (const api of model.apis) {
       if (api["apiname"] == elementid) {
         target = JSON.parse(JSON.parse(api["input-output"])[0])["requestBody"]["content"]["application/json"]["schema"]["properties"];

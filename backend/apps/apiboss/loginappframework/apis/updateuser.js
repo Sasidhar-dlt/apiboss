@@ -70,7 +70,7 @@ exports.doService = async (jsonReq, _, headers) => {
 
 	if (result.result) {	// update done successfully
 		LOG.info(`User updated ${result.name}, old ID: ${jsonReq.old_id}, new ID: ${jsonReq.new_id}`); 
-		return {...CONSTANTS.TRUE_RESULT, ...result, tokenflag: result.approved==1?true:false, reason: undefined};
+		return {...CONSTANTS.TRUE_RESULT, ...result, tokenflag: result.approved==1?true:false, reason: undefined,domain:result.domain};
 	}
 	else {	// DB or internal error
 		LOG.error(`Unable to update: ${idEntry.name}, ID: ${jsonReq.old_id}, DB error`);

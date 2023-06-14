@@ -5,11 +5,12 @@
  import { util } from "/framework/js/util.mjs";
  import { monkshu_component } from "/framework/js/monkshu_component.mjs";
  import { jsonview } from "./src/json-view.js";
- import { APP_CONSTANTS } from "../../../../js/constants.mjs";
+//  import { APP_CONSTANTS } from "../../../../js/constants.mjs";
  import { session } from "/framework/js/session.mjs";
 
  
- const COMPONENT_PATH = util.getModulePath(import.meta),VIEW_PATH=APP_CONSTANTS.CONF_PATH,ORG_DEV_METADATA = "__org_dev_metadata";
+//  const COMPONENT_PATH = util.getModulePath(import.meta),VIEW_PATH=APP_CONSTANTS.CONF_PATH,ORG_DEV_METADATA = "__org_dev_metadata";
+const COMPONENT_PATH = util.getModulePath(import.meta),ORG_DEV_METADATA = "__org_dev_metadata";
  
  let model, apiname;
  

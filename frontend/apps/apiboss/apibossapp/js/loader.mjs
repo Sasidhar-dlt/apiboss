@@ -5,7 +5,7 @@ const beforeLoading = async () => {
     if (!document.querySelector('.spinner')) {
         const div = document.createElement('div');
         div.classList.add("spinner");
-        div.innerHTML = '<img class="loading-spinner" src="./img/loading_spinner.svg"/>';
+        div.innerHTML = '<img class="loading-spinner" src="../apibossapp/img/loading_spinner.svg"/>';
         document.body.appendChild(div);
     }
 }

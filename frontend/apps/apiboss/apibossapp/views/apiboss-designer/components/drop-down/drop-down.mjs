@@ -4,6 +4,7 @@
  */
  import { util } from "/framework/js/util.mjs";
  import { monkshu_component } from "/framework/js/monkshu_component.mjs";
+ import {dialog_box} from "../../../shared/components/dialog-box/dialog-box.mjs"
  
  const COMPONENT_PATH = util.getModulePath(import.meta);
  const diloagBoxComponent = window.monkshu_env.components['dialog-box'];
@@ -58,7 +59,8 @@
 
 function disableOrEnableInputField(element) {
     const dropDownShadowRoot = drop_down.getShadowRootByHost(element) ? drop_down.getShadowRootByHost(element) : drop_down.getShadowRootByContainedElement(element);
-    const shadowRoot = diloagBoxComponent.getShadowRootByContainedElement(drop_down.getHostElement(dropDownShadowRoot));
+    // const shadowRoot = diloagBoxComponent.getShadowRootByContainedElement(drop_down.getHostElement(dropDownShadowRoot));
+    const shadowRoot = dialog_box.getShadowRootByContainedElement(drop_down.getHostElement(dropDownShadowRoot));
 
     if(drop_down.getHostElement(dropDownShadowRoot).id == "isauthenticationneeded") {
       if(dropDownShadowRoot.querySelector('select').value == "NO"){

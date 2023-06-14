@@ -29,8 +29,8 @@ async function elementRendered(element) {
 async function _instantiatePlugins(element) {
     const role = securityguard.getCurrentRole();
 	let plugins; try{plugins = await $$.requireJSON(`${COMPONENT_PATH}/${element.id}/pluginreg.json`);} catch (err) {LOG.error(`Can't read plugin registry, error is ${err}`); return {};};
-	if(role=="admin") plugins = ["admin","exit"];
-	else if(role == "user") plugins = ["exit"];
+	if(role=="admin") plugins = ["admin"];
+	else if(role == "user") plugins = [];
 	const data = {plugins:[]}; pluggable_ribbon.extensions = pluggable_ribbon.extensions||{}; pluggable_ribbon.extensions[element.id||"null"] = {};
 	
 	for (const plugin of plugins) {
