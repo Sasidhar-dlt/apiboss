@@ -13,6 +13,7 @@
 
 
 exports.doService = async jsonReq => {
+    jsonReq = jsonReq.data.data;
     if (!validateRequest(jsonReq)) { LOG.error(`Bad API list request ${jsonReq ? JSON.stringify(jsonReq) : "null"}.`); return { data: CONSTANTS.FALSE_RESULT }; }
     else{
         await LOG.info(`${APPCONSTANTS.CONF_DIR}`)
@@ -36,36 +37,36 @@ async function updateCluster(apiregkey,key,value,regFile) {
 function _generateRateLimit(jsonReq) {
     if(!fs.existsSync(`${APPCONSTANTS.CONF_DIR}/ratelimits.json`)){
         fs.writeFileSync(`${APPCONSTANTS.CONF_DIR}/ratelimits.json`, JSON.stringify({}));
-        _writeFile(jsonReq.data);
+        _writeFile(jsonReq);
     } else {
-        _writeFile(jsonReq.data);
+        _writeFile(jsonReq);
     }
 }
 
 function _generateHttpBasicAuth(jsonReq) {
     if(!fs.existsSync(`${APPCONSTANTS.CONF_DIR}/httpbasicauths.json`)){
         fs.writeFileSync(`${APPCONSTANTS.CONF_DIR}/httpbasicauths.json`, JSON.stringify({}));
-        _writeHttpBasiAuth(jsonReq.data);
+        _writeHttpBasiAuth(jsonReq);
     } else {
-        _writeHttpBasiAuth(jsonReq.data);
+        _writeHttpBasiAuth(jsonReq);
     }
 }
 
 function _generateInputOutput(jsonReq) {
     if(!fs.existsSync(`${APPCONSTANTS.CONF_DIR}/inputoutput.json`)){
         fs.writeFileSync(`${APPCONSTANTS.CONF_DIR}/inputoutput.json`, JSON.stringify({}));
-        _writeInputOutput(jsonReq.data);
+        _writeInputOutput(jsonReq);
     } else {
-        _writeInputOutput(jsonReq.data);
+        _writeInputOutput(jsonReq);
     }
 }
 
 async function _generateApiRegistry (jsonReq) {
     if(!fs.existsSync(`${APPCONSTANTS.CONF_DIR}/apiregistry.json`)){
         fs.writeFileSync(`${APPCONSTANTS.CONF_DIR}/apiregistry.json`, JSON.stringify({}));
-        await _writeApiRegistry(jsonReq.data);
+        await _writeApiRegistry(jsonReq);
     } else {
-        await _writeApiRegistry(jsonReq.data);
+        await _writeApiRegistry(jsonReq);
     }
 }
 
@@ -135,10 +136,10 @@ async function _writeApiRegistry (req) {
             }
             value+= `${encodeURIComponent(JSON.stringify(headerObj))}`;
         }
-        if(req[2].apiregistrydata[key].isrestapi !== "YES") { await publish.doService({data: {path: `${key}`, apiregentry: `/apis/httpproxy.js?${value.slice(2)}`}}) 
+        if(req[2].apiregistrydata[key].isrestapi !== "YES") { await publish.doService({data: {path: `${key}`, apiregentry: `/apibossapp/apis/httpproxy.js?${value.slice(2)}`}}) 
         }
         else { 
-            await publish.doService({data: {path: `${key}`, apiregentry: `/apis/restproxy.js?${value.slice(2)}`}}) 
+            await publish.doService({data: {path: `${key}`, apiregentry: `/apibossapp/apis/restproxy.js?${value.slice(2)}`}}) 
         }
     }
 }

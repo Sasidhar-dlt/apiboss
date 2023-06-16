@@ -43,7 +43,7 @@ export const i18n = {
 "LoginError": "Login error",
 
 "logintagline": "APIBoss",
-"loginsubtag": "Cloud Integrated Development Environment",
+"loginsubtag": "The world's most powerful API Manager with pluggable policies to support any scenarios",
 "learn":"Learn More",
 "Name": "Name",
 "Email": "Email",
@@ -217,7 +217,7 @@ export const i18n = {
 "FileAlreadyExists": "File already exists, can't overwrite.",
 
 "logintagline": "APIBoss",
-"loginsubtag": "Cloud Integrated Development Environment",
+"loginsubtag": "The world's most powerful API Manager with pluggable policies to support any scenarios",
 "learn":"Learn More",
 "Name": "Name",
 "Email": "Email",

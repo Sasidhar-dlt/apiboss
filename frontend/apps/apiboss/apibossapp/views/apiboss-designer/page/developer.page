@@ -1,7 +1,7 @@
 SCHEMA
 ======
 {
-    "topribbon": {"html":"pluggable-ribbon-developer", "styleBody":"url(../apibossapp/views/apiboss-designer/page/topribbon.styleBody.css)", "ribbonTitle":"{{i18n.APIBossDeveloper}}", "ribbonLogo":"../apibossapp/views/apiboss-designer/page/logo.png"},
+    "topribbon": {"html":"pluggable-ribbon-developer", "styleBody":"url(../apibossapp/views/apiboss-designer/page/topribbon.styleBody.css)", "ribbonTitle":"{{i18n.APIBossDeveloper}}", "ribbonLogo":"../apibossapp/views/apiboss-designer/page/apiboss_new.svg"},
     "packages": {"html":"api-list", "label":"{{i18n.DoubleClickToOpen}}", 
         "onclickHandler":"window.monkshu_env.components['api-list'].openClicked(this,this.id)","styleBody":"span#label{ font-weight: 500;  color: #444444; font-family: 'Red Hat Text';font-size: smaller; text-align: center; background-color: #DFF0FE; padding: 5px;border-top: 1px solid #98CCFD; border-bottom: 1px solid #98CCFD; margin: 0px;} div#container{ border: none ; align-content: flex-start;}"},                                                                                                                                                                                        
     "apicontent": {"html":"api-contents"},

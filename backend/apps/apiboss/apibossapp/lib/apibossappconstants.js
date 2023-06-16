@@ -6,6 +6,7 @@
 const path = require("path");
 
 APP_ROOT = `${path.resolve(`${__dirname}/../`)}`;
+LOGINAPP_CONSTANTS = require(`${__dirname}/../../loginappframework/apis/lib/loginappconstants.js`);
 
 exports.APP_ROOT = APP_ROOT;
 exports.LIB_DIR = `${APP_ROOT}/lib`;

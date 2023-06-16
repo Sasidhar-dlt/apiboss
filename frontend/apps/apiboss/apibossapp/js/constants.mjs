@@ -36,7 +36,7 @@ export const APP_CONSTANTS = {
     MSG_OBJECT_DROPPED: "OBJECT_DROPPED",
   // Login constants
     MIN_PASS_LENGTH: 8,
-    API_LOGIN: API_PATH+"/login",
+    // API_LOGIN: API_PATH+"/login",
     API_RESET: API_PATH+"/resetuser",
     API_REGISTER: API_PATH+"/register",
     API_UPDATE: API_PATH+"/updateuser",

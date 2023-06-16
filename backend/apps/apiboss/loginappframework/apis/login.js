@@ -37,6 +37,7 @@ exports.addLoginListener = (modulePath, functionName) => {
 }
 
 exports.doService = async (jsonReq, servObject) => {
+	jsonReq = jsonReq.data;
 	if (!validateRequest(jsonReq)) {LOG.error("Validation failure."); return CONSTANTS.FALSE_RESULT;}
 	
 	LOG.debug(`Got login request for ID ${jsonReq.id}`);

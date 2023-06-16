@@ -32,7 +32,7 @@ async function getItemList() {
                 try {
                     serverDetails.secure = loginResult.scheme == "https";
                     const listApiResponse =  await apiman.rest(`${loginResult.scheme}://${defaultSeverDetails.data.server}:${defaultSeverDetails.data.port}/apps/apiboss/admin/list`, "POST", 
-                    { apikey:defaultSeverDetails.data.apikey,domain }, true,true);
+                    {apikey:defaultSeverDetails.data.apikey,domain}, true,true);
                     const listApiResult = [];
                     listApiResponse.apis.forEach((apipath)=>{
                         if(_checkDomainAndSubdomain(apipath.split("/",2).join("/").substring(1), String(domain))) {listApiResult.push(apipath)}
@@ -58,6 +58,12 @@ async function getItemList() {
                     });                   
                     result.data.apis = apilist;
                     result.data.policies = policy;
+                }
+                else {
+                    if(!listApiResult.length) {
+                        delete result.data.apis;
+                        delete result.data.policies;
+                    }
                 }
                 } catch (error) {
                     DIALOG.showMessage(await i18n.get("ConnectIssue"), "error", null, messageTheme, "MSG_DIALOG");
@@ -113,6 +119,12 @@ async function getItemList() {
                     });                    
                     result.data.apis = apilist;
                     result.data.policies = policy;
+                }
+                else {
+                    if(!listApiResult.length) {
+                        delete result.data.apis;
+                        delete result.data.policies;
+                    }
                 }
                 } catch (error) {
                     DIALOG.showMessage(await i18n.get("ConnectIssue"), "error", null, messageTheme, "MSG_DIALOG");

@@ -107,7 +107,7 @@ async function publishModel(parsedData, name, server, port, adminid, adminpasswo
     if (!loginResult.result) return loginResult;    // failed to connect or login
     try {   // try to publish now
         return {result: (await apiman.rest(`${loginResult.scheme}://${server}:${port}/apps/apiboss/admin/updateconf`, "POST", 
-            { data: parsedData}, true,true)).data.result, err: "Publishing failed at the server", 
+            { data: parsedData}, true,true)).result, err: "Publishing failed at the server", 
             raw_err: "Publishing failed at the server", key: "PublishServerIssue"};
     } catch (err)  {return {result: false, err: "Server connection issue", raw_err: err, key: "LoginIssue"} }
   } else { return {result: false, err: "Server connection issue", raw_err: "InvalidDetails", key: "InvalidDetails"} }
@@ -125,7 +125,7 @@ async function publishMetaData(metaData,org,userid,name,server, port) {
     if(server.length && port.length && name.length) {
     try {   // try to publish now
         return {result: (await apiman.rest(APP_CONSTANTS.API_CREATEORUPDATEMETA, "POST", 
-            {"data": {metadata: metaData,org,id:userid,server,port,name,isPublicServer}}, true,true)).result, err: "Publishing failed at the server", 
+             {metadata: metaData,org,id:userid,server,port,name,isPublicServer}, true,true)).result, err: "Publishing failed at the server", 
             raw_err: "Publishing failed at the server", key: "PublishServerIssue"};
     } catch (err)  {return {result: false, err: "Server connection issue", raw_err: err, key: "ConnectIssue"} }
   } else { return {result: false, err: "Server connection issue", raw_err: "InvalidDetails", key: "InvalidDetails"} }
@@ -138,14 +138,14 @@ async function loginToServer(server, port, adminid, adminpassword) {
     const API_LOGIN_INSECURE = `http://${server}:${port}/apps/apiboss/admin/login`;
 
     try {   // try secure first
-        const result = await apiman.rest(API_LOGIN_SECURE, "POST",{"data": {id: adminid, pw: adminpassword,op:"login"}}, false,true);
-        if (result.data.result) return {result: true, scheme:"https"};
+        const result = await apiman.rest(API_LOGIN_SECURE, "POST", {id: adminid, pw: adminpassword,op:"login"}, false,true);
+        if (result.result) return {result: true, scheme:"https"};
         else throw `Server secure login failed, trying insecure, ${await i18n.get(SecureConnectFailed)}`;
     } catch (err)  {    // try insecure else give up
         try {
             LOG.debug(err);
-            const result = await apiman.rest(API_LOGIN_INSECURE, "POST",{"data": {id: adminid, pw: adminpassword,op:"login"}}, false,true);
-            if (result.data.result) return {result: true, scheme:"http"};
+            const result = await apiman.rest(API_LOGIN_INSECURE, "POST", {id: adminid, pw: adminpassword,op:"login"}, false,true);
+            if (result.result) return {result: true, scheme:"http"};
             else return {result: false, err: "Login failed at the server", raw_err: "Login failed at the server", key: "LoginIssue"};
         } catch (err)  {return {result: false, err: "Server connection issue", raw_err: err, key: "ConnectIssue"} }
     }

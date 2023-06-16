@@ -4,6 +4,7 @@
 
 import {util} from "/framework/js/util.mjs";
 import {router} from "/framework/js/router.mjs";
+import {session} from "/framework/js/session.mjs";
 
 const PLUGIN_PATH = util.getModulePath(import.meta);
 let IMAGE, I18N;
@@ -15,9 +16,7 @@ async function init() {
     return true;
 }
 
-async function clicked() {
- router.loadPage(`${APP_CONSTANTS.APIBOSS_MAIN_HTML}?view=apiboss-designer`);
-}
+const clicked = _ => { session.remove(APP_CONSTANTS.FORCE_LOAD_VIEW); router.navigate(APP_CONSTANTS.MAIN_HTML) };
 
 const getImage = _ => IMAGE;
 
