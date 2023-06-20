@@ -9,8 +9,11 @@ const bcryptjs = require("bcryptjs");
 const serverutils = require(`${CONSTANTS.LIBDIR}/utils.js`);
 const DB_PATH = path.resolve(`${APP_CONSTANTS.DB_DIR}/loginapp.db`);
 const DB_CREATION_SQLS = require(`${APP_CONSTANTS.DB_DIR}/loginapp_dbschema.json`);
+const APIBOSS_DB_PATH = path.resolve(`${APP_CONSTANTS.DB_DIR}/apiboss.db`);
+const APIBOSS_DB_CREATION_SQLS = require(`${APP_CONSTANTS.DB_DIR}/apibossapp_dbschema.json`);
 const ID_BLACK_WHITE_LISTS = require(`${APP_CONSTANTS.CONF_DIR}/idblackwhitelists.json`)
 const db = require(`${CONSTANTS.LIBDIR}/db.js`).getDBDriver("sqlite", DB_PATH, DB_CREATION_SQLS);
+const apibossDb = require(`${CONSTANTS.LIBDIR}/db.js`).getDBDriver("sqlite", APIBOSS_DB_PATH, APIBOSS_DB_CREATION_SQLS);
 
 const idDeletionListeners = [];
 
@@ -30,6 +33,7 @@ exports.register = async (id, name, org, pwph, totpSecret, role, approved, verif
 	}
 
 	if (finalResult) {
+		await addProductsForDomain(domain);
 		finalResult = await db.runCmd(
 			"INSERT INTO users (id, name, org, suborg, pwph, totpsec, role, approved, verified, domain) VALUES (?,?,?,?,?,?,?,?,?,?)",
 			[id, name, existingRootOrg||org, org, pwphHashed, totpSecret, role, approved?1:0, verifyEmail?0:1, domain]);
@@ -318,6 +322,17 @@ function _flattenArray(results, columnName, functionToCall) {
 	if (!results) return [];
 	const retArray = []; for (const result of results) retArray.push(
 		functionToCall?functionToCall(result[columnName]):result[columnName]); return retArray;
+}
+
+async function addProductsForDomain (domain) {
+	const products = ['apiboss-designer'];
+
+	const productsList = await apibossDb.getQuery("SELECT * FROM views WHERE domain = ? COLLATE NOCASE", [domain])
+	if (productsList && productsList.length) { return; }
+
+	for(const each of products){
+		await apibossDb.runCmd("INSERT INTO views (domain, view) VALUES (?,?)", [domain, each])
+	};
 }
 
 exports.ID_EXISTS = "useridexists"; exports.NO_ID = "noid"; exports.BAD_PASSWORD = "badpassword";
