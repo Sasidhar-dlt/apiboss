@@ -60,7 +60,7 @@ async function getItemList() {
                     result.data.policies = policy;
                 }
                 else {
-                    if(!listApiResult.length) {
+                    if(!listApiResult.length && result?.data) {
                         delete result.data.apis;
                         delete result.data.policies;
                     }
@@ -121,7 +121,7 @@ async function getItemList() {
                     result.data.policies = policy;
                 }
                 else {
-                    if(!listApiResult.length) {
+                    if(!listApiResult.length && result?.data) {
                         delete result.data.apis;
                         delete result.data.policies;
                     }
