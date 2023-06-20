@@ -36,7 +36,6 @@ async function openDialog() {
     let htmlContnet = htmlFragment.getAttribute("htmlcontent") ? decodeURIComponent(htmlFragment.getAttribute("htmlcontent")) :
         htmlFragment.getAttribute("htmlfile") ? await $$.requireText(htmlFragment.getAttribute("htmlfile")) : "";
     const tableDom = new DOMParser().parseFromString(htmlContnet, "text/html");
-    console.log(tableDom);
     tableDom.querySelector("textarea#server").textContent = defaultSeverDetails.data.server;
     tableDom.querySelector("textarea#port").textContent = defaultSeverDetails.data.port;
     tableDom.querySelector("textarea#package").textContent = defaultSeverDetails.data.package;
@@ -65,9 +64,7 @@ async function openDialog() {
                     if (loginResult.result) { // failed to connect or login
                         apiman.registerAPIKeys({"*":"fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389"},"X-API-Key");
                         const publicMetaresult = await apiman.rest(APP_CONSTANTS.API_GETMETADATA, "POST", { org: org, name: publicServerDetails.package, id: userid, server: publicServerDetails.serverIP, port: publicServerDetails.port, isPublicServer: true }, true, true);
-                        console.log(publicMetaresult);
                         if (publicMetaresult.result && publicMetaresult?.data?.policies.length) {
-                            console.log(publicMetaresult.data.policies.some(policy => policy.apikey == result.apikey))
                             if (publicMetaresult.data.policies.some(policy => policy.apikey == result.apikey)) {
                                 blackboard.broadcastMessage(MSG_FILE_UPLOADED, { name: publicServerDetails.package, data: JSON.stringify(publicMetaresult.data) });
                                 await serverManager.setDefaultSettings(org, userid, server, port, packageName, result.apikey, true);
