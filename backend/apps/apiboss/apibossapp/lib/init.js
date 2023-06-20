@@ -12,15 +12,8 @@ exports.initSync = _ => {
 
     // const fileindexer = require(`${APIBOSS_CONSTANTS.LIBDIR}/fileindexer.js`);
     const loginhandler = require(`${APIBOSS_CONSTANTS.LIB_DIR}/loginhandler.js`);
-    const apibossconstantshandler = require(`${APIBOSS_CONSTANTS.LIB_DIR}/app.js`);
-    const apibossratelimithandler = require(`${APIBOSS_CONSTANTS.LIB_DIR}/apiregistry_extensions/apibossrateenforcer.js`);
-    const apibosshttpbasichandler = require(`${APIBOSS_CONSTANTS.LIB_DIR}/apiregistry_extensions/apibosshttpbasicauth.js`);
-
 
     loginhandler.init(); 
-    apibossconstantshandler.initSync();
-    apibossratelimithandler.initSync();
-    apibosshttpbasichandler.initSync();
     // fileindexer.init();
 }
 

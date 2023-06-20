@@ -5,15 +5,15 @@ const APIBOSS_CONSTANTS = LOGINAPP_CONSTANTS.ENV.APIBOSSAPP_CONSTANTS;
 
 exports.doService = async jsonReq => {
     jsonReq = jsonReq.data;
-   if (!validateRequest(jsonReq)) { LOG.error(`Bad metadata or request`); return { result:false }; }
+   if (!validateRequest(jsonReq)) { LOG.error(`Bad metadata or request`); return { data: {result:false} }; }
    else{
     const userslist = await userid.getUsersForOrgOrSuborg(jsonReq.org);
     if(userslist.result&&userslist.users.length>0){
     const result = userslist.users.some(user=>user.id == jsonReq.id &&user.role=="admin")
     _generateMetadata(jsonReq);
-    return { result:result };
+    return { data: {result:result} };
     }
-    else return { result:false };
+    else return { data: {result:false} };
    }
 }
 

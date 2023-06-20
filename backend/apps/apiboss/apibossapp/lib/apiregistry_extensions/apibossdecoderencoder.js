@@ -20,6 +20,6 @@ function decodeIncomingData(apiregentry, _url, data, headers, servObject) {
     return {url: apiregentry.query.url, method: apiregentry.query.method||servObject.req.method||"POST", data, headers: headersDecoded, servObject} 
 }
 
-const encodeResponse = (_apiregentry, _url, respObj, _reqHeaders, _respHeaders) => respObj?.data||null;
+const encodeResponse = (_apiregentry, _url, respObj, _reqHeaders, _respHeaders) => ((respObj && respObj?.data)?respObj.data:respObj)||null;
 
 module.exports = {decodeIncomingData, encodeResponse}

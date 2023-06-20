@@ -9,7 +9,7 @@
  const sqlite3 = require("sqlite3");
  const mkdirAsync = util.promisify(fs.mkdir);
  const accessAsync = util.promisify(fs.access);
- const DB_CREATION_SQLS = require(`${APPCONSTANTS.DB_DIR}/dbschema.json`);
+ const DB_CREATION_SQLS = require(`${APPCONSTANTS.DB_DIR}/apibossapp_dbschema.json`);
  const DB_PATH = require("path").resolve(`${APPCONSTANTS.DB_DIR}/apiboss.db`);
  
  let dbInstance, dbRunAsync, dbAllAsync;
