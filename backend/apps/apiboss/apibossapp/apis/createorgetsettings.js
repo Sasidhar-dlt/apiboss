@@ -10,6 +10,7 @@ exports.doService = async jsonReq => {
     const userslist = await userid.getUsersForOrgOrSuborg(jsonReq.org);
     if(userslist.result&&userslist.users.length>0){
     const result = userslist.users.some(user=>user.id == jsonReq.id && user.role=="admin")
+    if(!fs.existsSync(APIBOSS_CONSTANTS.CONFDIR)) fs.mkdirSync(APIBOSS_CONSTANTS.CONFDIR);
     if(!fs.existsSync(`${APIBOSS_CONSTANTS.CONFDIR}/settings.json`)) fs.writeFileSync(`${APIBOSS_CONSTANTS.CONFDIR}/settings.json`,JSON.stringify({}));
     const jsonData = fs.readFileSync(`${APIBOSS_CONSTANTS.CONFDIR}/settings.json`, 'utf8');
     const data = JSON.parse(jsonData);
