@@ -5,6 +5,7 @@
 
 const login = require(`${LOGINAPP_CONSTANTS.API_DIR}/login.js`);
 const register = require(`${LOGINAPP_CONSTANTS.API_DIR}/register.js`);
+const updateuser = require(`${LOGINAPP_CONSTANTS.API_DIR}/updateuser.js`);
 const APIBOSS_CONSTANTS = LOGINAPP_CONSTANTS.ENV.APIBOSSAPP_CONSTANTS;
 const dblayer = require(`${APIBOSS_CONSTANTS.LIB_DIR}/dblayer.js`);
 
@@ -13,6 +14,7 @@ exports.init = _ => {
 
     login.addLoginListener(`${APIBOSS_CONSTANTS.LIB_DIR}/loginhandler.js`, "viewInjector");
     register.addNewUserListener(`${APIBOSS_CONSTANTS.LIB_DIR}/loginhandler.js`, "viewInjector");
+    updateuser.addLoginListener(`${APIBOSS_CONSTANTS.LIB_DIR}/loginhandler.js`, "viewInjector");
 }
 
 exports.viewInjector = async function(result) {
