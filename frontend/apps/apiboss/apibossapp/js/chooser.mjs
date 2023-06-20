@@ -15,7 +15,6 @@ import { loader } from "./loader.mjs";
 const MODULE_PATH = util.getModulePath(import.meta);
 
 async function interceptPageLoadData() {
-    console.log(MODULE_PATH);
     const views = await $$.requireJSON(`${MODULE_PATH}/../views/conf/views.json`), lang = i18n.getSessionLang();
     const data = {views:[]}; for (const view of views) {
         const item = {name: view, description: 
